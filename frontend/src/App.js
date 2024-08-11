@@ -1,31 +1,51 @@
 import './App.css';
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { Navbar } from './Components/Assets/Navbar/Navbar';
-import { Homepage } from './Components/Assets/HomePage/Homepage';
+import { Navbar } from './Components/Navbar/Navbar';
 import { Card } from './Pages/Card';
 import { Createcard } from './Pages/Createcard';
-import {StepTwo} from './Components/Assets/HomePage/StepTwo'
-import { Footer } from './Components/Assets/Footer/Footer';
-import { Partnar } from './Components/Assets/HomePage/Partnar';
+import { Services } from './Components/Services/Services';
+import { Hero } from './Components/Hero/Hero';
+import { Banner } from './Components/Banner/Banner';
+import { Footer } from './Components/Footer/Footer';
+import { AppStore } from './Components/AppStore/AppStore';
+import AOS from "aos";
+import "aos/dist/aos.css";
 
-function App() {
+const App = () => {
+  React.useEffect(() => {
+    AOS.init({
+      offset: 100,
+      duration: 700,
+      easing: "ease-in",
+      delay: 100,
+    });
+    AOS.refresh();
+  }, []);
+
   return (
     <Router>
       <div>
         <Navbar />
-        {/* Define routes for different components */}
         <Routes>
-          <Route path="/homepage" element={<Homepage />} />
+        <Route
+            path="/"
+            element={
+              <>
+                <Hero />
+                <Services />
+                <Banner />
+                <AppStore />
+              </>
+            }
+          />
           <Route path="/card" element={<Card />} />
           <Route path="/createcard" element={<Createcard />} />
         </Routes>
-        <StepTwo/>
-        <Partnar/>
         <Footer />
       </div>
     </Router>
   );
-}
+};
 
 export default App;

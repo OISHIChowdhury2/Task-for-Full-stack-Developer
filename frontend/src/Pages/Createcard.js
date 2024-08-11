@@ -63,7 +63,7 @@ export const Createcard = () => {
           }
           return;
         }
-      window.location = "/createcard";
+      window.location = "/";
     } catch (error) {
       console.error("Error:", error);
     }
@@ -72,7 +72,7 @@ export const Createcard = () => {
   return (
     <Fragment>
 
-      <div className="items-start max-w-md mx-auto mt-10 bg-white shadow-lg rounded-lg overflow-hidden">
+      <div className="items-start max-w-md mx-auto mt-3 bg-white shadow-lg  overflow-hidden">
       {/* <div className="text-2xl py-4 px-6  bg-indigo-400 text-white text-center font-bold uppercase">
           Client Details
         </div> */}
@@ -180,6 +180,7 @@ export const Createcard = () => {
           </div>
         </form>
       </div>
+  
     </Fragment>
   );
 };
